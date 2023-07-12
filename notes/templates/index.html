@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Save your notes safely with minote.">
+    <meta name="keywords" content="minote, khumbo, note, journal, notes">
+    <meta name="author" content="Khumbo Khonje">
+    <meta name="content-language" content="english">
+    <meta name="audience" content="all">
+    <meta name="revisit-after" content="5 days">
+    <meta name="distribution" content="global">
+    <link rel="icon" href="{{ url_for( 'static', filename='images/favicon-notebook.ico')}}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/bootstrap-grid.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/styling.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Minote</title>
+    {% endblock %}
+</head>
+<body style="background-color: #0097A7;">
+    <nav class="navbar navbar-expand-sm text-center" style="background-color: #00B8D4;">
+        <span class="navbar-brand" style="color: #ffffff;">Minote <span class="logo"><img style="width: 20px; height: 25px;" src="{{ url_for('static', filename='images/pen.ico') }}" alt=""></span> </span>
+        {% if user.is_authenticated %}
+            <ul class="nav collapse ml-auto">
+                <li class="nav-item">
+                    <a href="/notes" class="nav-link nav-ittem">Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/journal" class="nav-link nav-ittem">Journal</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/notes/user-profile" class="nav-link nav-ittem">{{ current_user.user_name }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/notes/logout" class="nav-link nav-ittem">Logout</a>
+                </li>
+            </ul>
+        {% else %}
+            <ul class="nav collapse ml-auto">
+                <li class="ml-auto nav-item">
+                    <a href="/notes/sign-up" class="nav-link nav-ittem">Create account</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/notes/login" class="nav-link nav-ittem">Login</a>
+                </li>               
+            </ul>
+        {% endif %}
+    </nav>
+{% block content %}
+{% endblock %}
+
+<script src="{{ url_for( 'static', filename='js/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for( 'static', filename='js/note.js') }}"></script>
+<script src="{{ url_for( 'static', filename='js/jquery/jquery-2.2.4.min.js') }}"></script>
+</body>
+</html>

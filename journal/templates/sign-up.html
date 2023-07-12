@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container">
+</div>
+<div class="container signin">
+    <div class="row">
+        <div class="col"> </div>
+        <div class="col-sm-12 col-lg-8 col-md-8">
+            <div class="card signincard">
+                <div class="form-group mx-4 my-3 text-dark">
+                    <div class="create-account card-text lead font-weight-bold mb-4" align="center">Create your account</div>
+                        <form method="POST">
+                            <label for="firstName">First Name</label>
+                            <input min="3" max="15" required placeholder="e.g Klay" style="height: 30px;" type="text" class="form-control mb-3 " minlength="2" name="firstName">
+                            <label for="lastName">Last Name</label>
+                            <input min="3" max="15" required placeholder="e.g Thompson" style="height: 30px;" type="text" class="form-control mb-3" name="lastName" minlength="2">
+                            <label for="email">Email Address</label>
+                            <input min="3" max="15" required placeholder="e.g user@example.com" style="height: 30px;" type="email" class="form-control mb-3" name="email" minlength="5">
+                            <div class="form-group my-3">
+                                <label for="password1">Password</label>
+                                <input min="3" max="15" required type="password" class="form-control mb-3" minlength="8" style="width: 400px;height: 30px;input-security: auto; " name="password1" placeholder="Password should be at least 8 characters">
+                                <label for="password2">Re-enter Password</label>
+                                <input min="3" max="15" required class="form-control" minlength="8" type="password" style="width: 400px;height: 30px;" name="password2" placeholder="Confirm the password">
+                            </div>
+                            <button type="submit" class="btn btn-info mb-3 mt-4">Submit</button>
+                        </form>  
+                        <div class="mb-4 mt-3 card-text">Already have an account? <a href="/notes/login" class="card-link text-info">Log in</a></div>                                  
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

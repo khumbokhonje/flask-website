@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for( 'static', filename='images/favicon-notebook.ico')}}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/bootstrap-grid.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/styling.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Minote</title>
+    {% endblock %}
+</head>
+<body style="background-color: #4d636e;">
+    
+    <nav class="navbar navbar-dark navbar-expand-sm bg-dark text-center">
+        <span class="navbar-brand" style="color: #3b95a1;">Mijournal <span class="logo"><img style="width: 20px; height: 25px;" src="{{ url_for('static', filename='images/pen.ico') }}" alt=""></span> </span>
+        {% if user.is_authenticated %}
+        <ul class="nav collapse ml-auto">
+            <li class="nav-item">
+                <a href="/notes" class="nav-link nav-ittem">Notes</a>
+            </li>
+            <li class="nav-item">
+                <a href="/journal/user-profile" class="nav-link nav-ittem">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a href="/journal/logout" class="nav-link nav-ittem">Logout</a>
+            </li>
+            </ul>
+        {% else %}
+        <ul class="nav collapse ml-auto">
+            <li class="ml-auto nav-item">
+                <a href="/journal/sign-up" class="nav-link nav-ittem">Create account</a>
+            </li>
+            <li class="nav-item">
+                <a href="/journal/login" class="nav-link nav-ittem">Login</a>
+            </li>
+           
+        </ul>
+        {% endif %}
+    </nav>
+    {% block content %}
+    {% endblock %}
+
+<script src="{{ url_for( 'static', filename='js/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for( 'static', filename='js/src/modal.js') }}"></script>
+<script src="{{ url_for( 'static', filename='js/src/alert.js') }}"></script>
+<script src="{{ url_for( 'static', filename='js/src/popover.js') }}"></script>
+<script src="{{ url_for( 'static', filename='js/src/collapse.js') }}"></script>
+<script src="{{ url_for( 'static', filename='js/src/button.js') }}"></script>
+<script src="{{ url_for( 'static', filename='js/src/carousel.js') }}"></script>
+<script src="{{ url_for( 'static', filename='js/note.js') }}"></script>
+<script src="{{ url_for( 'static', filename='js/jquery/jquery-2.2.4.min.js') }}"></script>
+</body>
+</html>

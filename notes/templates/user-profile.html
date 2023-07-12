@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-sm-12 col-md-10 col-lg-8 col-xl-8">
+            <div class="card">
+                <div class="card-header font-weight-bold" align="center">profile picture</div>
+                <div class="card-body">
+                    <div class="mb-1">Username:    {{ current_user.user_name }}</div><br>
+                    <div class="mb-1">Email:    {{ current_user.user_email }}</div><br>
+                    <div class="mb-1">Bio:  I am happy</div>
+                </div>
+                <button type="submit" class="btn btn-info mb-3 mx-5">Delete account</button>
+            </div>    
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
